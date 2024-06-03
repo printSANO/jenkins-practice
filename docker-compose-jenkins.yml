@@ -3,14 +3,15 @@ version: '3.8'
 services:
   # 젠킨스
   jenkins:
-    image: jenkins/jenkins:latest
-    container_name: jenkins
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
     user: root
+    container_name: jenkins
     ports:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/homebrew/bin/docker-compose:/usr/local/bin/docker-compose
       - jenkins_home:/var/jenkins_home
 
     networks:
