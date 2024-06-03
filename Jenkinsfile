@@ -19,6 +19,7 @@ pipeline {
             steps {
                 script {
                     sh "docker run hello-world"
+                    sh "docker-compose --version"
                 }
             }
         }
