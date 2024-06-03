@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_COMPOSE = '/opt/homebrew/bin/docker-compose'
+        DOCKER_COMPOSE = '/usr/local/bin/docker-compose'
         PATH = "$PATH:/usr/local/bin"
     //     DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
     //     DOCKER_IMAGE_NAME = 'your-docker-image-name'
