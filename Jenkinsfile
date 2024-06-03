@@ -18,8 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh "docker run hello-world"
-                    sh "docker-compose --version"
+                    sh "docker compose --version"
                 }
             }
         }
@@ -27,7 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "docker-compose -f jenkins-practice/${DOCKER_COMPOSE_FILE} build"
+                    sh "docker compose -f jenkins-practice/${DOCKER_COMPOSE_FILE} build"
                 }
             }
         }
