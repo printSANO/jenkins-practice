@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_COMPOSE = '/usr/local/bin/docker-compose'
-        PATH = "$PATH:/usr/local/bin"
+        // DOCKER_COMPOSE = '/usr/local/bin/docker-compose'
+        // PATH = "$PATH:/usr/local/bin"
     //     DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
     //     DOCKER_IMAGE_NAME = 'your-docker-image-name'
     //     DOCKER_IMAGE_TAG = 'latest'
@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "${DOCKER_COMPOSE} -f jenkins-practice/docker-compose-prod.yml build"
+                    sh "docker-compose -f jenkins-practice/docker-compose-prod.yml build"
                 }
             }
         }
