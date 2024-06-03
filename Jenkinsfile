@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker-compose -f /var/jenkins_home/workspace/repo/jenkins-practice/docker-compose-prod.yml build'
+                    sh 'docker-compose -f jenkins-practice/docker-compose-prod.yml build'
                 }
             }
         }
