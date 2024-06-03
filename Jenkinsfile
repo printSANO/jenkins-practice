@@ -15,6 +15,14 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                script {
+                    sh "docker run hello-world"
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 script {
