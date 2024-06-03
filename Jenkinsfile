@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         DOCKER_COMPOSE = '/opt/homebrew/bin/docker-compose'
+        PATH = "$PATH:/usr/local/bin"
     //     DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
     //     DOCKER_IMAGE_NAME = 'your-docker-image-name'
     //     DOCKER_IMAGE_TAG = 'latest'
@@ -20,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker-compose -f jenkins-practice/docker-compose-prod.yml build'
+                    sh "${DOCKER_COMPOSE} -f jenkins-practice/docker-compose-prod.yml build"
                 }
             }
         }
