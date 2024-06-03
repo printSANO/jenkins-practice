@@ -18,6 +18,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    sh "docker --version"
+                    sh "which docker compose"
                     sh "docker compose --version"
                 }
             }
