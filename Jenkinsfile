@@ -6,25 +6,17 @@ pipeline {
         DOCKER_IMAGE_NAME = 'jenkins-session'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_COMPOSE_FILE = 'docker-compose-prod.yml'
+        SQLALCHEMY_DATABASE_URL=credentials('SQLALCHEMY_DATABASE_URL')
+        MYSQL_ROOT_PASSWORD=credentials('MYSQL_ROOT_PASSWORD')
+        MYSQL_DATABASE=credentials('MYSQL_DATABASE')
+        MYSQL_USER=credentials('MYSQL_USER')
+        MYSQL_PASSWORD=credentials('MYSQL_PASSWORD')
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/printSANO/jenkins-practice.git'
-            }
-        }
-    
-        stage('Load Environment Variables') {
-            steps {
-                script {
-                    def envFile = readFile('.env').trim()
-                    def envLines = envFile.tokenize('\n')
-                    envLines.each { line ->
-                        def (key, value) = line.tokenize('=')
-                        env."$key" = value
-                    }
-                }
             }
         }
 
