@@ -14,6 +14,16 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/printSANO/jenkins-practice.git'
             }
         }
+    
+        stage('Load Environment Variables') {
+            steps {
+                script {
+                    withEnvFile('.env') {
+                        sh 'printenv'
+                    }
+                }
+            }
+        }
 
         stage('Test') {
             steps {
