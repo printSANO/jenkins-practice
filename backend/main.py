@@ -18,7 +18,7 @@ def get_db():
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to Jenkins Test!"}
 
 @app.post("/users/", response_model=UserCreate)
 def create_user_test(user: UserCreate, db: Session = Depends(get_db)):
