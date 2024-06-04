@@ -6,11 +6,11 @@ pipeline {
         DOCKER_IMAGE_NAME = 'jenkins-session'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_COMPOSE_FILE = 'docker-compose-prod.yml'
-        SQLALCHEMY_DATABASE_URL=${env.SQLALCHEMY_DATABASE_URL}
-        MYSQL_ROOT_PASSWORD=${env.MYSQL_ROOT_PASSWORD}
-        MYSQL_DATABASE=${env.MYSQL_DATABASE}
-        MYSQL_USER=${env.MYSQL_USER}
-        MYSQL_PASSWORD=${env.MYSQL_PASSWORD}
+        SQLALCHEMY_DATABASE_URL="${env.SQLALCHEMY_DATABASE_URL}"
+        MYSQL_ROOT_PASSWORD="${env.MYSQL_ROOT_PASSWORD}"
+        MYSQL_DATABASE="${env.MYSQL_DATABASE}"
+        MYSQL_USER="${env.MYSQL_USER}"
+        MYSQL_PASSWORD="${env.MYSQL_PASSWORD}"
     }
 
     stages {
