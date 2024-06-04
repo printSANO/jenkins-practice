@@ -18,8 +18,11 @@ pipeline {
         stage('Load Environment Variables') {
             steps {
                 script {
-                    withEnvFile('.env') {
-                        sh 'printenv'
+                    def envFile = readFile('.env').trim()
+                    def envLines = envFile.tokenize('\n')
+                    envLines.each { line ->
+                        def (key, value) = line.tokenize('=')
+                        env."$key" = value
                     }
                 }
             }
