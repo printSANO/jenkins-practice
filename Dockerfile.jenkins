@@ -22,17 +22,11 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /
 # 도커 저장소 등록
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# 도커 설치
+# 도커 & 컴포즈 설치
 RUN apt-get update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-# 도커 컴포즈 설치
-# RUN curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-# RUN chmod +x /usr/local/bin/docker-compose
-# RUN ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 RUN usermod -aG docker jenkins && \
     usermod -aG users jenkins
-
-# RUN docker compose version
 
 USER jenkins
