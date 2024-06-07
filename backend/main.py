@@ -20,6 +20,10 @@ def get_db():
 async def root():
     return {"message": "Welcome to Jenkins Test!"}
 
+@app.get("/test/")
+async def root():
+    return {"message": "This is a test"}
+
 @app.post("/users/", response_model=UserCreate)
 def create_user_test(user: UserCreate, db: Session = Depends(get_db)):
     return create_user(db, user)
