@@ -1,7 +1,7 @@
 # 젠킨스 이미지
 FROM jenkins/jenkins:latest
 
-# 유저 루트 (권환 이슈)
+# 유저 루트 (권한 이슈)
 USER root
 
 # 도커 관련 라이브러리 설치
@@ -29,4 +29,5 @@ RUN apt-get update && \
 RUN usermod -aG docker jenkins && \
     usermod -aG users jenkins
 
+# 루트 권한 회수
 USER jenkins
