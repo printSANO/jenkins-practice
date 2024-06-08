@@ -3,3 +3,5 @@ for-test2 테스트
 slack bot test
 
 team judy session
+
+슬랙 테스트
